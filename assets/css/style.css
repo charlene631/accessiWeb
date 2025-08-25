@@ -1,0 +1,750 @@
+/* ===============================
+   BASE / MOBILE-FIRST
+================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+a:focus, button:focus {
+  outline: 2px solid #2962e6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: #18396a;
+  color: white;
+}
+
+button:hover {
+  background-color: #ffd5ee;
+  color: black;
+}
+
+.buttonExp {
+  cursor: pointer;
+  border: none;
+  background-color: #ffd5ee;
+  color: black;
+}
+
+.buttonExp:hover {
+  background-color: #ee83b4;
+}
+
+.buttonProfile {
+  width: 100px;
+  height: 100px;
+  color: #18396a;
+  font-style: bold;
+  background-color: #18396a;
+  background-image: url('https://charlene149611.github.io/PORTFOLIOLIVRABLE/assets/image/diamantcristal.png');
+  background-size: cover;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonProfile span {
+  transform: rotate(-45deg);
+  display: inline-block;
+}
+
+.buttonProfile.active {
+  transform: rotate(225deg);
+}
+
+.buttonProfile.active span {
+  transform: rotate(-225deg);
+}
+
+.themeToggle {
+  position: absolute;
+  top: -130px;
+  right: 2px;
+  z-index: 10;
+  background: none;
+}
+
+.themeToggle:hover {
+  background: none;
+}
+
+/* Formulaires */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input, button {
+  margin-bottom: 15px;
+  padding: 8px;
+}
+
+/* ===============================
+   LAYOUT STRUCTURE
+================================= */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "aside"
+    "main"
+    "footer";
+}
+
+header {
+  grid-area: header;
+  background-color: #5a2952;
+  background-image: url('https://img.freepik.com/vecteurs-premium/paysage-nuit-du-ciel-nuages_24911-3808.jpg?semt=ais_hybrid&w=740');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  color: white;
+  text-align: center;
+  padding: 2rem 0 3rem;
+  border-radius: 0;
+  position: relative;
+}
+
+header nav {
+  position: relative;
+  z-index: 2;
+}
+
+header .imgHeader {
+  position: absolute;
+  top: 50%;
+  left: -100px;
+  transform: translateY(-50%);
+  animation: mewMove 10s linear infinite;
+}
+
+@keyframes mewMove {
+  0% {
+    left: -100px;
+    top: 40%;
+  }
+  25% {
+    top: 30%;
+  }
+  50% {
+    left: 100%;
+    top: 60%;
+  }
+  75% {
+    top: 40%;
+  }
+  100% {
+    left: -100px;
+    top: 50%;
+  }
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  margin-top: 30px;
+  padding-top: 30px;
+  color: #ffd5ee;
+}
+
+/* Menu de navigation */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+  margin-right: 40px;
+}
+
+.nav-menu li {
+  margin: 0;
+}
+
+.nav-menu a {
+  display: inline-block;
+  background-color: #18396a;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-menu a:hover {
+  background-color: #ee83b4;
+  transform: scale(1.05);
+}
+
+/* Aside profil */
+#profilAside {
+  grid-area: aside;
+  background-color: #ffd5ee;  
+  padding: 20px;  
+  justify-items: center;
+  display: grid;
+  gap: 1rem;  
+  position: relative;
+}
+
+#profilSection {
+  padding: 20px;  
+}
+
+/* Section principale */
+main {
+  grid-area: main;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Sections */
+section {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+}
+
+section:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+section#parcours p {
+  text-align: center;
+}
+
+/* Pied de page */
+footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 2rem 0 6rem;
+  background-color: #5a2952;
+  color: white;
+}
+
+.footerSection {
+  background-color: #ffd5ee;
+  padding: 2rem 0 6rem;;
+  margin: 0px;
+  border-radius: 0;
+  justify-items: center;
+}
+
+footer .social-links a {
+  margin: 0 10px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+footer .social-links a:hover {
+  color: white;
+}
+
+/* ======= CARD FLIP PROFILE ======= */
+
+/* ----- Conteneur et structure ----- */
+.card-container {
+  perspective: 1000px;
+  max-width: 400px;
+  margin: auto;
+  position: relative; 
+  height: 600px; 
+  z-index: 10;
+}
+
+.card-flip {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-flip.flipped {
+  transform: rotateY(180deg);
+}
+
+/* ----- Faces de la carte ----- */
+.card-face {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  padding: 1rem;
+}
+
+.card-face.front {
+  z-index: 2;
+  backface-visibility: hidden;
+  background-image: url('https://charlene149611.github.io/PORTFOLIOLIVRABLE/assets/image/versionpixlrcharlenepositive.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.card-face.back {
+  transform: rotateY(180deg);
+  background: #f8f9fa;
+  color: #333;
+}
+
+.card-face h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-face p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ----- Bouton de retour sur la face arrière ----- */
+.back button.return-btn:hover {
+  background-color: #314d7d;
+}
+
+/* ----- Badges ----- */
+.badge {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.rare-badge {
+  background: linear-gradient(to right, #ee83b4, #ee83b4);
+  color: #000;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 1rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px #ee83b4;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* ----- Cartes personnalisées ----- */
+.custom-card {
+  width: 100%;
+  border: 4px solid #ee83b4;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ffd5ee;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffe4f4, #ffd5ee);
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Brillance des cartes personnalisées */
+.custom-card::before {
+  content: "";
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: rotate(25deg);
+  animation: shimmer 3s infinite;
+  border-radius: 20px;
+  position: absolute;
+}
+
+/* ----- Images de caractères ----- */
+.character-img,
+.evolution-img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.character-img {
+  margin-top: 25px;
+}
+
+/* ----- Titres généraux ----- */
+h3 {
+  margin-top: 15px;
+  color: #1976d2;
+}
+
+/* ----- Animations ----- */
+@keyframes shimmer {
+  0% {
+    transform: rotate(25deg) translate(-100%, -100%);
+  }
+  100% {
+    transform: rotate(25deg) translate(100%, 100%);
+  }
+}
+
+@keyframes shrinkToButton {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    height: auto;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.ranged {
+  animation: shrinkToButton 0.5s forwards;
+}
+
+/* ======= SWIPER SLIDER ======= */
+#swiperProjectContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}  
+
+.slide-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.slide-content h3 {
+  margin-top: 15px;
+  font-size: 1.25rem;
+}
+
+.slide-content p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* ======= FORMULAIRE ======= */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ======= CONTACT ======= */
+.contact {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-card {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.contact-card a {
+  color: #25D366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+
+/* ======= MEDIA QUERIES, RESPONSIVE STYLES ======= */
+
+/* Styles communs à la carte pour tous les écrans */
+.card-container {
+  box-sizing: border-box;
+}
+
+.card-flip {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.card-face {
+  font-size: 0.9rem;
+}
+
+.card-face h4 {
+  margin: 10px 0;
+}
+
+.card-face p {
+  margin-bottom: 10px;
+}
+
+/* Table commune : les cellules alignées à gauche par défaut */
+.table th,
+.table td {
+  text-align: left;
+}
+
+/* === Écrans de largeur maximale de 600px === */
+@media (max-width: 600px) {
+  .card-container {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .card-flip {
+    width: 100%;
+    height: 90vh;
+  }
+
+  .card-flip .front,
+  .card-flip .back {
+    min-height: 100%;
+  }
+
+  .card-face {
+    padding: 1rem;
+  }
+
+  .card-face h4 {
+    font-size: 18px;
+  }
+
+  .card-face p {
+    font-size: 14px;
+  }
+
+  /* Table : empilée pour mobile */
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .table thead,
+  .table tbody,
+  .table th,
+  .table td,
+  .table tr {
+    display: block;
+    width: auto;
+    white-space: normal;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table tr {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+  }
+}
+
+/* === Écrans de largeur entre 601px et 900px === */
+@media (min-width: 601px) and (max-width: 900px) {
+  .card-container {
+    max-width: 90%;
+  }
+
+  .card-face {
+    padding: 1.2rem;
+  }
+}
+
+/* === Écrans de largeur minimale de 901px === */
+@media (min-width: 901px) {
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "aside main"
+      "footer footer";
+    grid-template-columns: 1fr 2fr;
+  }
+
+  aside {
+    text-align: center;
+  }
+
+  aside img {
+    max-width: 20%;
+    margin-bottom: 20px;
+  }
+
+  .nav-menu {
+    justify-content: center;
+  }
+
+  .contact {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    column-gap: 3rem;
+  }
+}
+
+/* ======= DARK MODE ======= */
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark header,
+body.dark footer {
+  background-color: #1f1f1f;
+}
+
+body.dark aside#profilAside,
+body.dark main {
+  background-color: #2a2a2a;
+}
+
+body.dark section {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .nav-menu a {
+  background-color: #222;
+}
+
+body.dark .nav-menu a:hover {
+  background-color: #444;
+}
+
+body.dark input,
+body.dark textarea {
+  background-color: #444;
+  color: white;
+  border: 1px solid #666;
+}
+
+/* Style pour les faces de la carte en mode sombre */
+body.dark .card-face {
+  background-color: #31333d;
+  color: #f0f1f0;
+}
+
+body.dark .card-face.front {
+  background-image: url('/assets/image/versionpixlrcharlenepositive.png');
+  background-size: cover;
+}
+
+
+/* Style pour les cartes personnalisées en mode sombre */
+body.dark .custom-card {
+  border: 4px solid #555;
+  box-shadow: 0 0 20px rgba(100, 100, 100, 0.6);
+  background: linear-gradient(135deg, #2a2a2a, #3e3e3e);  
+}
+
+body.dark .custom-card::before {
+  background: linear-gradient(
+    120deg,
+    rgba(60, 60, 60, 0) 30%,
+    rgba(100, 100, 100, 0.5) 50%,
+    rgba(60, 60, 60, 0) 70%
+  );
+}
+
+/* Style pour les badges rares en mode sombre */
+body.dark .rare-badge {
+  background: linear-gradient(45deg, #8a6d3b, #5d4037);
+  color: #fff;
+}
+
+/* Style pour les titres en mode sombre */
+body.dark h3 {
+  color: #bb86fc;
+}
+
+/* Style pour le conteneur de carte rétréci en mode sombre */
+body.dark .card-container.ranged {
+  animation: shrinkToButton 0.5s forwards;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Charlène | Pokédex</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/image/faviconportfolio.webp"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <!-- Header -->
+      <header class="header">
+        <img
+          src="https://media.tenor.com/8PlnT9rtCScAAAAj/mew-pokemon.gif"
+          alt="mew qui se déplace"
+          class="imgHeader"
+          id="mewImage"
+        />
+        <h1>Bienvenue dans mon portfolio</h1>
+        <nav id="menu">
+          <ul class="nav-menu">
+            <li><a href="#profilSection" id="profilLink">Profil</a></li>
+            <li><a href="#parcours" id="parcoursLink">Parcours</a></li>
+            <li><a href="#projets" id="projetsLink">Projets</a></li>
+            <li><a href="#contact" id="contactLink">Contact</a></li>
+          </ul>
+          <button
+            class="themeToggle"
+            id="darkToggle"
+            aria-label="Changer le thème"
+          >
+            🌓
+          </button>
+        </nav>
+      </header>
+    </div>
+
+    <!-- Aside -->
+    <aside id="profilAside" aria-live="polite">
+      <h2>Profil</h2>
+      <p>
+        Bonjour ! Charlène, 36 ans, je suis en reconversion pour travailler dans
+        le milieu du développement web. Suite à une formation de marketing
+        digital, j'ai des connaissances en UX design, création de site WordPress
+        et référencement naturel. Je suis développeuse web full stack passionnée
+        par le backend, l'IA, le design et fan de sciences fictions.
+      </p>
+
+      <button id="showProfile" class="buttonProfile">
+        <span>Voir mon profil</span>
+      </button>
+
+      <!-- La section profil -->
+      <div id="profilSection" style="display: none; margin-top: 20px">
+        <!-- Le JS va injecter la fiche ici -->
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main>
+      <section id="parcours">
+        <h2>Parcours</h2>
+        <p>
+          Voici une présentation de mes expériences depuis ma reconversion
+          professionnelle.
+        </p>
+        <button id="showExperiences" class="buttonExp">Mes expériences</button>
+        <div
+          id="experiencesSection"
+          style="display: none; margin-top: 20px"
+        ></div>
+        <!-- Le JS va injecter les expériences ici -->
+      </section>
+
+      <section id="projets" class="container my-5">
+        <!--Classe Bootstrap my-5 = margin-top et margin-bottom: 3rem (48px)-->
+        <h2 class="text-center mb-4">Projets</h2>
+        <p class="text-center">
+          Voici quelques uns de mes projets en cours de développement utilisant
+          les technologies de HTML, CSS, JavaScript, Node.js, Express, React,
+          MySQL, NoSQL et autres outils modernes (bibliothèque externes,
+          frameworks, etc.).
+        </p>
+
+        <div id="swiperProjectContainer" class="mt-4"></div>
+        <!--Classe Boostrap mt-4 = margin-top: 1.5rem (24px)-->
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Vous pouvez me contacter via email, WhatsApp ou LinkedIn.</p>
+
+        <form
+          id="contactForm"
+          action="https://formsubmit.co/ajax/6a412ce97022e91ed1a11abe3c3631a5"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <!-- <label for="file">Fichier:</label> Désactivé temporairement-->
+          <!-- <input type="file" id="file" name="file"> -->
+
+          <button type="submit">Envoyer</button>
+        </form>
+
+        <div class="contact-card">
+          <p>Vous pouvez aussi me contacter ici :</p>
+          <a
+            href="https://api.whatsapp.com/send?phone=330688851255&text=Hello"
+            target="_blank"
+            >🔗 WhatsApp</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+
+    <section class="footerSection">
+      <h2>Merci de votre visite !</h2>
+      <p>
+        J'espère que vous avez apprécié votre visite sur mon portfolio.
+        N'hésitez pas à me contacter pour toute question ou collaboration.
+      </p>
+      <p>À bientôt !</p>
+      <p class="footerText">Mew vole sur lui-même pour vous dire au revoir !</p>
+      <img
+        src="https://i.pinimg.com/originals/65/90/f6/6590f6e00ca8ae7957c2542099303153.gif"
+        alt="mew vole sur lui même"
+        class="imgFooter"
+      />
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 - Charlène - Tout droit réservé®</p>
+      <div class="social-links">
+        <a href="https://github.com/charlene631" target="_blank"
+          >💻 GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/charlène-gausset-113380b5/"
+          target="_blank"
+          >🔗 LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <!-- Bibliothèques externes -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Tes fichiers JavaScript -->
+    <script src="assets/js/swipe.js" type="module"></script>
+    <script src="assets/js/script.js" type="module"></script>
+    <script src="assets/js/burger.js" type="module"></script>
+    <script src="assets/js/form.js" type="module"></script>
+  </body>
+</html>

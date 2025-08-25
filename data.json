@@ -1,0 +1,53 @@
+{  
+    "id": 1,
+    "nom": "Charlène Gausset",
+    "âge": 36,
+    "adresse": {
+      "rue": "***",
+      "ville": "Saint-Martin-de-Seignanx"
+    },
+    "interets": ["Salsa", "Marche", "Musique", "Lecture", "Sciences Fictions", "Calligraphie"],
+    "competences": ["WordPress", "UX Design", "HTML", "CSS", "JavaScript","Node.js", "React", "Express","MySql", "MongoDb"],
+    "parcours": [
+      {
+        "poste":"Chargée de communication numérique et marketing",
+        "entreprise":"Hi-commerce, Bordeaux",
+        "periode":"novembre 2022 - mai 2023",
+        "details":"Mise en oeuvre de campagnes numériques avec suivi analytique des performances. Création de contenu pour linkedIn et gestion de la stratégie de communication. Optimisation SEO pour site web"
+      },
+      {
+        "poste":"Chargée de communication digitale",
+        "entreprise":"Amoono, Paris",
+        "periode":"avril 2021 - novembre 2022",
+        "details":"Collaboration avec les développeurs pour intégrer et optimiser les contenus des sites ou applications web. Réalisation de maquettes UI design pour améliorer l'expèrience utilisateur. Maintenance et mises à jour des sites via WordPress. Support technique"
+      },
+      {
+        "poste":"Conception digitale",
+        "entreprise":"Icadémie, Toulon",
+        "periode":"juin 2023-juin 2024",
+        "details":"Conception d'un site e-commerce avec WordPress, incluant personnalisation via HTML et CSS. Réalisation de wireframes et de prototypes fonctionnels en UI/UX design. Veille technologique et tests utilisateurs pour garantir l'efficacité de la conception"
+      },
+
+      {
+        "poste":"Coach artiste",
+        "entreprise":"Grand Est Team SARL, Strasbourg",
+        "periode":"2020-2022",
+        "details":"Projet entrepreneurial de coaching vocal en ligne et physique. Création de contenu pédagogique et gestion de la présence en ligne via un site web et les réseaux sociaux. Développement de programmes personnalisés pour les clients"
+      },
+
+      {
+        "poste":"Infirmière DE",
+        "entreprise":"Hôpital de l'Eau vive - ASM 13, Paris 13e",
+        "periode":"2014-2019",
+        "details":"Lors de mon expérience en tant qu'infirmière en psychiatrie en service fermé, j'étais référente des logiciels de dossiers patients et pharmacie, ainsi que des activités pédagogiques et thérapeutiques. J'assurais la gestion des plannings des soignants, l'accompagnement des patients hospitalisés sous contrainte et leur entourage, ainsi que la mise en place des projets de soins. J'ai également animé des activités ludiques à visée psychothérapique (chant, Dixiludo) et encadré des étudiants en stage. Enfin, j'étais correspondante en hygiène, en lien avec la direction et les équipes."
+      },
+      {
+        "poste": "Agent de service hospitalier | Dame de compagnie",
+        "entreprise": "Soins à domicile et structures médico-sociales",
+        "periode": "2008-2011",
+        "details": "Logistique, gestion de budget, accompagnement au quotidien."
+      }
+    ]
+
+  }
+
