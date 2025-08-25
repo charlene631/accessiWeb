@@ -1,43 +1,153 @@
-# PORTFOLIO LIVRABLE
-Portfolio - Charlène
-## Description
-Bienvenue sur mon portfolio en ligne ! Ce projet présente mes compétences, mes projets et mes expériences professionnelles. Vous y trouverez des exemples de mon travail, des informations sur mes compétences techniques et des moyens de me contacter. Projet de développement web HTML, CSS et liens Bootstrap, JavaScript et modules, pour créer un portfolio pour rechercher un stage. 
+# accessiWeb
 
-## Structure du Projet
-- **index.html** : Page d'accueil du portfolio.
-- **assets/** : Dossier contenant les ressources comme les images, les fichiers CSS et JavaScript.
-  - **css/** : Fichiers de style.
-  - **js/** : Fichiers JavaScript.
-  - **images/** : Images utilisées dans le portfolio.
-- **projects/** : Dossier contenant les détails des projets.
+## Présentation du projet
+Accessithèque est une plateforme web permettant de consulter et gérer une bibliothèque de documents et de catégories, avec un système d’authentification sécurisé et gestion des rôles (`admin` et `user`).  
+Elle permet :  
+- aux utilisateurs de parcourir et rechercher des documents  
+- aux administrateurs de gérer les utilisateurs, catégories et documents  
+- le téléversement de fichiers (Cloudinary)  
+- la vérification d’email lors de l’inscription  
 
+---
 
-Portfoliolivrable/
+## Structure du projet
+
+Accessitheque/
+│
+├── back/                       # Backend Node.js / Express
+│   ├── config/                  # Configurations
+│   │   ├── cloudinary.js
+│   │   └── db.js
+│   ├── controllers/             # Logique métier
+│   │   ├── authController.js
+│   │   ├── categoryController.js
+│   │   ├── documentsController.js
+│   │   └── userController.js
+│   ├── db/
+│   │   └── structure_bibliotheque.sql
+│   ├── middlewares/             # Middleware
+│   │   ├── authMiddleware.js
+│   │   └── uploadCloudinary.js
+│   ├── models/                  # Accès BDD
+│   │   ├── categoryModel.js
+│   │   ├── documentsModel.js
+│   │   └── userModel.js
+│   ├── routes/                  # Routes API
+│   │   ├── authRoutes.js
+│   │   ├── categoryRoutes.js
+│   │   ├── documentsRoutes.js
+│   │   └── userRoutes.js
+│   ├── utils/
+│   │   └── sendEmail.js
+│   ├── server.js
+│   └── package.json
+│
+├── front/                      # Frontend (React + Vite)
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   └── package.json
+│
 ├── README.md
-├── index.html
-├── data.json
-└── assets/
-    ├── css/
-    │   └── style.css
-    ├── js/
-    │   ├── swipe.js
-    │   ├── script.js
-    │   └── burger.js
-    └── image/
-        ├── image1.png
-        ├── image2.png
-        ├── image3.jpg
-        └── ...autres images
+└── ERRORS_AND_SOLUTIONS.md
 
-## Utilisation
-- Naviguez à travers les différentes sections pour en savoir plus sur mes compétences et mes projets.
-- Utilisez le formulaire de contact pour m'envoyer un message pour en savoir plus.
-- Jouer avec la carte profil pour avoir un aperçu de mes compétences, mes soft skills et mes intérêts.
-- Branche Fichiers-stables pour la sauvegarde de fichiers avant modifications.
 
-## Environnement de travail
-- Création nouveau repository sur GitHub avec main et branche
-- Création de la structure et développement du code avec Vs Code
-- Push des fichiers de code vers GitHub
-- Commits des modifications
-- Utilisation de GitHub pages pour la création du lien de navigation en ligne 
+---
+
+## Installation
+
+### Cloner le projet
+```bash
+git clone <url-du-repo>
+cd Accessitheque
+
+cd back
+npm install express bcrypt dotenv cors jsonwebtoken multer multer-storage-cloudinary mysql2 nodemon nodemailer 
+cp .env.example .env   # Créer et remplir le fichier .env (DB, Cloudinary, JWT, Gmail...)
+npm run dev
+
+cd ../front
+npm install
+npm run dev
+
+Technologies utilisées
+
+Backend : Node.js, Express, MySQL, Cloudinary, Nodemailer, JWT, bcrypt, CORS, dotenv, multer
+
+Frontend : React, Vite
+
+Base de données : MySQL
+
+Déploiement : Render (backend), Vercel (frontend)
+
+## Routes API
+
+### Authentification (`/api/auth`)
+
+| Méthode | URL                       | Description                                      |
+|---------|---------------------------|--------------------------------------------------|
+| POST    | /api/auth/register        | Inscription utilisateur + envoi email de vérification |
+| POST    | /api/auth/login           | Connexion utilisateur                            |
+| GET     | /api/auth/verify/:token   | Vérification d’email avec un token               |
+| POST    | /api/auth/logout          | Déconnexion utilisateur                          |
+
+### Utilisateurs (`/api/users`) – Protégé, admin uniquement
+
+| Méthode | URL                              | Description                                 |
+|---------|----------------------------------|---------------------------------------------|
+| GET     | /api/users/                      | Lister tous les utilisateurs                |
+| GET     | /api/users/:id                   | Récupérer un utilisateur par son ID         |
+| PUT     | /api/users/:id                   | Modifier un utilisateur par son ID          |
+| DELETE  | /api/users/:id                   | Supprimer un utilisateur par son ID         |
+| GET     | /api/users/protected-example     | Exemple de route protégée                   |
+
+### Catégories (`/categories`)
+
+| Méthode | URL                              | Description                                                        |
+|---------|----------------------------------|--------------------------------------------------------------------|
+| GET     | /categories/getAll               | Lister toutes les catégories                                       |
+| GET     | /categories/getOne?id={id}       | Récupérer une catégorie par ID (paramètre id en query)             |
+| PUT     | /categories/updateOne            | Modifier une catégorie (body : { "column": "name", "newValue": "nouveauNom", "id": 1 }) |
+| DELETE  | /categories/deleteOne            | Supprimer une catégorie (body : { "id": 1 })                       |
+| POST    | /categories/addOne               | Ajouter une catégorie (body : { "name": "nomCategorie" })          |
+
+### Documents (`/documents`)
+
+| Méthode | URL                | Description                                         |
+|---------|--------------------|-----------------------------------------------------|
+| GET     | /documents/        | Lister tous les documents                           |
+| GET     | /documents/:id     | Récupérer un document par ID                        |
+| POST    | /documents/        | Ajouter un document (upload fichier via file)       |
+| PUT     | /documents/:id     | Modifier un document (upload fichier via file)      |
+| DELETE  | /documents/:id     | Supprimer un document                               |
+
+### Route de base
+
+| Méthode | URL | Description                                         |
+|---------|-----|-----------------------------------------------------|
+| GET     | /   | Affiche les tables présentes dans la base de données|
+
+
+## Routes liste rapide: 
+// GET
+
+http://localhost:3000 => Show tables of database
+
+http://localhost:3000/api/auth/register
+http://localhost:3000/api/auth/login
+
+http://localhost:3000/api/users/ => get all users
+
+http://localhost:3000/api/users/:id => get user by id
+
+//POST
+http://localhost:3000/api/users/:id => update by id => 
+
+http://localhost:3000/api/users/:id => delete by id =>
+
+http://localhost:3000/categories
+http://localhost:3000/documents
